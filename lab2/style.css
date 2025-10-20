@@ -1,0 +1,364 @@
+/*
+  ======================================================
+  Global Styles & Custom Properties (Basic Use)
+  ======================================================
+*/
+
+/* Use Google Fonts - Source Sans 3 for main text and Varela Round for headings */
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@300;400;700&family=Varela+Round&display=swap');
+
+/* Color Theme using HEX and basic variables for consistency */
+:root {
+  /* Main palette: Navy Blue, Pale Cream, Sun Yellow */
+  --color-primary-dark: #2C3E50;    /* Navy Blue - For background, headers */
+  --color-secondary-light: #fefefe; /* Pale Cream - For main background */
+  --color-accent: #F39C12;         /* Sun Yellow/Orange - For highlights, buttons */
+  --color-text-dark: #34495E;      /* Dark Blue-Gray for main text */
+  --color-border-hr: #ECF0F1;      /* Light border for separators */
+}
+
+/* Base styles for the entire page (Element Selector) */
+body {
+  font-family: 'Source Sans 3', sans-serif;
+  color: var(--color-text-dark);
+  background-color: var(--color-secondary-light);
+  line-height: 1.6;
+  margin: 0; /* Box Model: Remove default margin */
+  padding: 0;
+}
+
+/* Headings Typography */
+h1, h2, h3 {
+  font-family: 'Varela Round', sans-serif;
+  color: var(--color-primary-dark);
+  line-height: 1.2;
+}
+
+h2 {
+  font-size: 2.2rem;
+  margin-bottom: 0.75em;
+  border-bottom: 2px solid var(--color-accent); /* Unique heading style */
+  display: inline-block; /* Keeps border length only as long as text */
+  padding-bottom: 5px;
+}
+
+/* Links Styling */
+a {
+  color: var(--color-accent);
+  text-decoration: none;
+}
+
+a:hover {
+  color: #c97f10; /* Slightly darker accent on hover */
+  text-decoration: underline;
+}
+
+/*
+  ======================================================
+  Layout & Structure (Using basic centering and padding)
+  ======================================================
+*/
+
+main {
+  max-width: 900px;
+  margin: 0 auto; /* Center the main content */
+  padding: 20px;
+}
+
+section {
+  /* Box Model: Consistent vertical spacing for all sections */
+  padding: 40px 0;
+}
+
+/* Customizing the <hr> visual separator */
+hr {
+  border: none;
+  border-top: 1px dashed var(--color-border-hr); /* Dotted border for a unique look */
+  margin: 40px 0;
+}
+
+
+/*
+  ======================================================
+  Header & Navigation Bar (Fixed Position)
+  ======================================================
+*/
+
+header {
+  /* Positioning: Fixed Header */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: var(--color-primary-dark);
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
+  padding: 10px 0;
+  z-index: 100;
+  text-align: center; /* Center content in header */
+}
+
+header h1 {
+  color: var(--color-secondary-light);
+  margin: 0;
+  padding-bottom: 5px;
+  font-size: 1.8rem;
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+nav ul li {
+  display: inline; /* Keep list items inline for horizontal navigation */
+  margin: 0 15px; /* Box Model: Spacing between navigation links */
+}
+
+nav ul li a {
+  color: var(--color-secondary-light);
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 5px 8px;
+  border-radius: 4px;
+}
+
+nav ul li a:hover {
+  color: var(--color-primary-dark);
+  background-color: var(--color-accent); /* Highlight the background on hover */
+  text-decoration: none;
+}
+
+/* Push body down so fixed header doesn't cover content */
+body {
+  padding-top: 120px; /* Adjusted padding to accommodate the fixed header height */
+}
+
+/*
+  ======================================================
+  Accessibility Skip Link (Absolute Position)
+  ======================================================
+*/
+
+.skip-link {
+  /* Positioning: Absolute - hide it off-screen */
+  position: absolute;
+  left: -9999px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  z-index: -999;
+}
+
+.skip-link:focus {
+  left: 50%;
+  transform: translateX(-50%); /* Note: Using transform here is usually okay */
+  top: 10px;
+  width: auto;
+  height: auto;
+  padding: 10px;
+  background-color: var(--color-accent);
+  color: var(--color-primary-dark);
+  text-align: center;
+  z-index: 9999;
+  outline: 3px solid var(--color-primary-dark);
+  border-radius: 4px;
+}
+
+/*
+  ======================================================
+  Hero Section (ID Selector)
+  ======================================================
+*/
+
+#hero {
+  text-align: center;
+  padding: 40px 20px;
+  background-color: #ffffff;
+  border: 1px solid var(--color-border-hr);
+  margin-top: 10px;
+}
+
+#hero h2 {
+  font-size: 2.8rem;
+  margin-top: 0;
+  border-bottom: none; /* Override section h2 style */
+}
+
+#hero p:nth-of-type(1) {
+  font-size: 1.1rem;
+}
+
+/*
+  ======================================================
+  About Section
+  ======================================================
+*/
+
+#about {
+  /* Using float for basic multi-column layout (traditional method) */
+  overflow: hidden; /* Clearfix for the floats below */
+}
+
+#about img {
+  /* Image styling */
+  float: left; /* Positioning: Float */
+  margin-right: 20px; /* Box Model: Spacing between image and text */
+  margin-bottom: 10px;
+  border-radius: 8px; /* Slightly rounded corners */
+  border: 3px solid var(--color-accent);
+  padding: 5px; /* Box Model: Padding inside the border */
+  background-color: #ffffff;
+}
+
+#about p {
+  /* Box Model: Adjust paragraph positioning next to the float */
+  overflow: hidden;
+}
+
+/*
+  ======================================================
+  Projects Section
+  ======================================================
+*/
+
+#projects ul {
+  list-style: none;
+  padding: 0;
+}
+
+#projects li {
+  /* Using margin for spacing between list items */
+  margin-bottom: 25px;
+  border-left: 5px solid var(--color-primary-dark);
+  padding-left: 15px;
+  background-color: #ffffff;
+  padding: 15px; /* Box Model: Padding inside the project box */
+  border-radius: 4px;
+  border-bottom: 1px solid var(--color-border-hr);
+}
+
+/*
+  ======================================================
+  Skills Section - Table Styling
+  ======================================================
+*/
+
+#skills table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+#skills th, #skills td {
+  /* Box Model: Padding for spacing within cells */
+  padding: 12px;
+  text-align: left;
+  border: 1px solid var(--color-border-hr);
+}
+
+#skills thead th {
+  background-color: var(--color-primary-dark);
+  color: var(--color-secondary-light);
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+/* Zebra striping using basic nth-child */
+#skills tbody tr:nth-child(odd) {
+  background-color: #f7f7f7;
+}
+
+
+/*
+  ======================================================
+  Contact Section - Form & Button Styling
+  ======================================================
+*/
+
+#contact form {
+  max-width: 450px;
+  margin: 0 auto;
+  padding: 30px;
+  background-color: #ffffff;
+  border: 1px solid var(--color-border-hr);
+  border-radius: 8px;
+}
+
+#contact label {
+  display: block;
+  font-weight: 700;
+  margin-top: 15px;
+  margin-bottom: 5px;
+}
+
+/* Styling all form inputs (input[type] is simple targeting) */
+#contact input,
+#contact textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  box-sizing: border-box; /* Crucial for box model consistency */
+  font-family: inherit;
+  font-size: 1rem;
+}
+
+#contact textarea {
+  min-height: 120px;
+}
+
+/* Button Customization */
+#contact button[type="submit"] {
+  background-color: var(--color-accent);
+  color: var(--color-primary-dark);
+  font-weight: 700;
+  padding: 10px 20px; /* Box Model: Padding */
+  border: none;
+  border-radius: 5px; /* Custom border-radius */
+  cursor: pointer;
+  margin-top: 20px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+#contact button[type="submit"]:hover {
+  background-color: #c97f10;
+  color: var(--color-secondary-light);
+}
+
+/*
+  ======================================================
+  Back-to-Top Link & Footer
+  ======================================================
+*/
+
+/* ID Selector for the main content entry point */
+#main-content {
+  /* Positioning: Static/Relative context */
+  position: relative;
+}
+
+/* Back-to-Top link style (Element/Attribute Selector) */
+a[href="#hero"] {
+  display: block;
+  text-align: center;
+  margin: 30px auto;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+footer {
+  text-align: center;
+  padding: 15px;
+  background-color: var(--color-primary-dark);
+  color: var(--color-border-hr);
+  font-size: 0.9rem;
+  margin-top: 40px;
+}
+
+footer a {
+  color: var(--color-accent);
+}
